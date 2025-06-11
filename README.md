@@ -5,6 +5,6 @@
 
 - Im Gxyenn, Creator Script Di Github Gxyenn
 - INFO ME
-- (CHANEL WHATSAPP)(https://whatsapp.com/channel/0029Vap5nJh2UPBDIc9bja1s)
+(CHANEL WHATSAPP)(https://whatsapp.com/channel/0029Vap5nJh2UPBDIc9bja1s)
 
 © 2025
