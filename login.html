@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - MyHoasting</title>
+    <link rel="icon" type="image/png" href="https://cloudkuimages.guru/uploads/images/684c97244c279.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --font-primary: 'Montserrat', sans-serif; 
+        --font-secondary: 'Inter', sans-serif; 
+        --saweria-bg: #ffffff;
+        --saweria-bg-soft: #f8fafc; 
+        --saweria-text-dark: #1e293b; 
+        --saweria-text-medium: #475569;
+        --saweria-text-light: #64748b;
+        --saweria-blue: #3b82f6; 
+        --saweria-blue-dark: #2563eb;
+        --saweria-orange: #f97316; 
+        --saweria-orange-dark: #ea580c;
+        --saweria-border: #e2e8f0;
+        --saweria-card-shadow: 0 4px 12px -1px rgba(0, 0, 0, 0.08), 0 2px 8px -1px rgba(0, 0, 0, 0.05);
+        --button-shadow-deep: 2px 4px 5px rgba(0,0,0,0.2), 0px 2px 2px rgba(0,0,0,0.14), 0px 1px 2px rgba(0,0,0,0.12);
+        --button-shadow-deep-hover: 3px 6px 7px rgba(0,0,0,0.25), 0px 3px 3px rgba(0,0,0,0.16), 0px 2px 3px rgba(0,0,0,0.14);
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { 
+        font-family: var(--font-secondary); 
+        font-weight: 400;
+        background-color: var(--saweria-bg-soft); 
+        color: var(--saweria-text-dark); 
+        display: flex; 
+        justify-content: center; 
+        align-items: center; 
+        min-height: 100vh; 
+        margin: 0; 
+        padding: 20px; 
+      }
+      .container { 
+        background-color: var(--saweria-bg); 
+        padding: 35px 40px; 
+        border-radius: 12px; 
+        box-shadow: var(--saweria-card-shadow); 
+        width: 100%; 
+        max-width: 420px; 
+        text-align: center; 
+        border: 1px solid var(--saweria-border);
+      }
+      .profile-pic-container { margin-bottom: 20px; }
+      .profile-pic-container img {
+        width: 80px; height: 80px;
+        border-radius: 12px;
+        box-shadow: var(--saweria-card-shadow);
+      }
+      h1 { 
+        font-family: var(--font-primary);
+        color: var(--saweria-text-dark); 
+        margin-bottom: 25px; 
+        font-size: 1.8rem; 
+        font-weight: 700;
+      }
+      .form-group { margin-bottom: 18px; text-align: left; }
+      label { 
+        display: block; 
+        margin-bottom: 7px; 
+        font-weight: 600; 
+        color: var(--saweria-text-medium); 
+        font-size: 0.9rem;
+        font-family: var(--font-main);
+      }
+      input[type="email"], input[type="password"] { 
+        width: 100%; 
+        padding: 12px 14px; 
+        border: 1px solid var(--saweria-border); 
+        border-radius: 8px; 
+        background-color: var(--saweria-bg); 
+        color: var(--saweria-text-dark); 
+        font-size: 0.95rem; 
+        box-sizing: border-box; 
+        font-family: var(--font-secondary);
+      }
+      input[type="email"]:focus, input[type="password"]:focus { 
+        border-color: var(--saweria-blue); 
+        outline: none; 
+        box-shadow: 0 0 0 3px rgba(59,130,246,0.25); 
+      }
+      button[type="submit"] { 
+        background-color: var(--saweria-blue); 
+        color: white; 
+        font-weight: 600; 
+        padding: 12px 20px; 
+        border: none; 
+        border-radius: 8px; 
+        font-size: 1rem; 
+        cursor: pointer; 
+        transition: background-color 0.2s, transform 0.15s, box-shadow 0.15s; 
+        width: 100%;
+        box-shadow: var(--button-shadow-deep);
+        font-family: var(--font-primary);
+      }
+      button[type="submit"]:hover { 
+        background-color: var(--saweria-blue-dark); 
+        transform: translateY(-2px);
+        box-shadow: var(--button-shadow-deep-hover);
+      }
+      button:disabled { 
+        background-color: #94a3b8; /* Grayed out */
+        cursor: not-allowed; 
+        box-shadow: none;
+        transform: none;
+      }
+      .message { margin-top: 18px; padding: 12px; border-radius: 6px; font-size: 0.9rem; }
+      .message.error { background-color: #fee2e2; color: #b91c1c; border: 1px solid #fecaca;}
+      .message.success { background-color: #dcfce7; color: #166534; border: 1px solid #bbf7d0;}
+      .links { margin-top: 25px; font-size: 0.9rem; color: var(--saweria-text-medium); }
+      .links a { color: var(--saweria-blue); text-decoration: none; font-weight: 500; }
+      .links a:hover { text-decoration: underline; color: var(--saweria-blue-dark); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="profile-pic-container">
+            <img src="https://cloudkuimages.guru/uploads/images/684c93b5d97db.jpg" alt="Logo MyHoasting">
+        </div>
+        <h1>Login Akun</h1>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" id="submitButton">Login</button>
+        </form>
+        <div id="messageArea" class="message" style="display:none;"></div>
+        <div class="links">
+            Belum punya akun? <a href="/register">Daftar di sini</a>
+            <br>
+            <a href="/">Kembali ke Toko</a>
+        </div>
+    </div>
+
+    <script>
+        const loginForm = document.getElementById('loginForm');
+        const messageArea = document.getElementById('messageArea');
+        const submitButton = document.getElementById('submitButton');
+
+        loginForm.addEventListener('submit', async function(event) {
+            event.preventDefault();
+            messageArea.style.display = 'none';
+            messageArea.textContent = '';
+            messageArea.className = 'message';
+            submitButton.disabled = true;
+            submitButton.textContent = 'Logging in...';
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            try {
+                const response = await fetch('/api/auth/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, password })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    localStorage.setItem('gxyennToken', data.token);
+                    localStorage.setItem('gxyennUser', JSON.stringify(data.user));
+                    messageArea.textContent = 'Login berhasil! Mengarahkan...';
+                    messageArea.classList.add('success');
+                    messageArea.style.display = 'block';
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const returnTo = urlParams.get('returnTo');
+                    if (returnTo && returnTo.startsWith('/') && !returnTo.startsWith('//') && !returnTo.includes('..')) {
+                        window.location.href = returnTo;
+                    } else {
+                        window.location.href = (data.user.role === 'admin') ? '/admin' : '/Dashboard'; 
+                    }
+                } else {
+                    messageArea.textContent = data.message || 'Login gagal.';
+                    messageArea.classList.add('error');
+                    messageArea.style.display = 'block';
+                }
+            } catch (error) {
+                messageArea.textContent = 'Terjadi kesalahan. Coba lagi.';
+                messageArea.classList.add('error');
+                messageArea.style.display = 'block';
+            } finally {
+                submitButton.disabled = false;
+                submitButton.textContent = 'Login';
+            }
+        });
+    </script>
+</body>
+</html>
